@@ -1,0 +1,6 @@
+{
+  "name": "nextjs-cognito-example",
+  "scripts": {
+    "dev": "pnpm --filter @app/web run dev"
+  }
+}
