@@ -28,7 +28,7 @@ export default function SetupMfaPage(): JSX.Element {
   return (
     <div>
       <h1>Setup MFA</h1>
-      <pre>{JSON.stringify(setupMfa, null, 2)}</pre>
+      <pre>{JSON.stringify(setupMfa.data, null, 2)}</pre>
       <form onSubmit={handleSubmit}>
         {submitError && <div style={{ color: "red" }}>{submitError}</div>}
         <label>

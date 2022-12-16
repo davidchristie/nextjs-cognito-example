@@ -5,7 +5,7 @@ export function getSessionCookie(ctx: Context): string {
   const { session } = ctx.req.cookies;
   if (session === undefined) {
     throw new TRPCError({
-      message: "Missing context.",
+      message: "Missing session.",
       code: "UNAUTHORIZED",
     });
   }

@@ -1,7 +1,5 @@
 import { trpc } from "../utilities/trpc";
 
-export function useCurrentUser(): ReturnType<
-  typeof trpc.auth.currentUser.useQuery
-> {
+export function useCurrentUser() {
   return trpc.auth.currentUser.useQuery();
 }

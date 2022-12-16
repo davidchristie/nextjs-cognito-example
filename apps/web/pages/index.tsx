@@ -5,7 +5,7 @@ export default function IndexPage() {
   return (
     <div>
       <h1>Index</h1>
-      <pre>{JSON.stringify(currentUser, null, 2)}</pre>
+      <pre>{JSON.stringify(currentUser.data, null, 2)}</pre>
     </div>
   );
 }
