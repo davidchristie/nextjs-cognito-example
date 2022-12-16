@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { homePath } from "../paths";
 import { setAuthResult } from "../storage/auth-result";
-import { getRequiredSession } from "../storage/session";
 import { trpc } from "../utilities/trpc";
 
 export type ConfirmMfa = (input: {
@@ -14,7 +13,6 @@ export function useConfirmMfa(): ConfirmMfa {
   const router = useRouter();
   return async (input) => {
     const result = await confirmMfa.mutateAsync({
-      session: getRequiredSession(),
       username: input.username,
       code: input.code,
     });

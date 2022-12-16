@@ -1,4 +1,3 @@
-import { getAccessToken } from "../storage/access-token";
 import { getIdToken } from "../storage/id-token";
 import { trpc } from "../utilities/trpc";
 

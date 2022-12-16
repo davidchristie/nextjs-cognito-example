@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { homePath } from "../paths";
 import { setAuthResult } from "../storage/auth-result";
-import { getRequiredSession } from "../storage/session";
 import { getRequiredUsername } from "../storage/username";
 import { trpc } from "../utilities/trpc";
 
@@ -13,7 +12,6 @@ export function useVerifyMfa(): VerifyMfa {
   return async (input) => {
     const result = await verifyMfa.mutateAsync({
       username: getRequiredUsername(),
-      session: getRequiredSession(),
       code: input.code,
     });
     setAuthResult(result);

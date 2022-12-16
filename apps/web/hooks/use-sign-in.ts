@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { mfaPath, setupMfaPath } from "../paths";
-import { setSession } from "../storage/session";
 import { setUsername } from "../storage/username";
 import { trpc } from "../utilities/trpc";
 
@@ -18,9 +17,6 @@ export function useSignIn(): SignIn {
       email: input.email,
       password: input.password,
     });
-    if ("session" in result) {
-      setSession(result.session);
-    }
     if ("challengeName" in result) {
       if (result.challengeName === "MFA_SETUP") {
         router.push(setupMfaPath);

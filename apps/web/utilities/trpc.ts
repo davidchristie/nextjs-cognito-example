@@ -1,6 +1,5 @@
 import { httpBatchLink, TRPCClientError } from "@trpc/client";
 import { createTRPCNext } from "@trpc/next";
-import { TRPCError } from "@trpc/server";
 import Router from "next/router";
 import { signInPath } from "../paths";
 import type { AppRouter } from "../server/routers/_app";

@@ -1,16 +1,12 @@
-import { z } from "zod";
 import { cognito } from "../../auth/cognito";
 import { procedure } from "../../trpc";
+import { getSessionCookie } from "../../utilities/get-session-cookie";
+import { setCookies } from "../../utilities/set-cookies";
 
-export const setupMfa = procedure
-  .input(
-    z.object({
-      session: z.string(),
-    })
-  )
-  .mutation(async ({ input }) => {
-    const result = await cognito.setupMfa({
-      session: input.session,
-    });
-    return result;
+export const setupMfa = procedure.mutation(async ({ input, ctx }) => {
+  const result = await cognito.setupMfa({
+    session: getSessionCookie(ctx),
   });
+  setCookies(result, ctx);
+  return result;
+});
