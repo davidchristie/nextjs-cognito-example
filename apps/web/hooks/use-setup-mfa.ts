@@ -6,8 +6,8 @@ type Data = {
 };
 
 export type SetupMfa =
-  | { loading: true; data: undefined }
-  | { loading: false; data: Data };
+  | { isLoading: true; data: undefined }
+  | { isLoading: false; data: Data };
 
 export function useSetupMfa(): SetupMfa {
   const setupMfa = trpc.auth.setupMfa.useMutation();
@@ -18,6 +18,6 @@ export function useSetupMfa(): SetupMfa {
     });
   }, []);
   return secretCode === undefined
-    ? { loading: true, data: undefined }
-    : { loading: false, data: { secretCode } };
+    ? { isLoading: true, data: undefined }
+    : { isLoading: false, data: { secretCode } };
 }

@@ -6,13 +6,13 @@ export function setCookies(result: {}, ctx: Context): void {
     setCookie("session", result.session, ctx);
   }
   if ("accessToken" in result && typeof result.accessToken === "string") {
-    setCookie("access_token", result.accessToken, ctx);
+    setCookie("accessToken", result.accessToken, ctx);
   }
   if ("refreshToken" in result && typeof result.refreshToken === "string") {
-    setCookie("refresh_token", result.refreshToken, ctx);
+    setCookie("refreshToken", result.refreshToken, ctx);
   }
   if ("idToken" in result && typeof result.idToken === "string") {
-    setCookie("id_token", result.idToken, ctx);
+    setCookie("idToken", result.idToken, ctx);
   }
 }
 
